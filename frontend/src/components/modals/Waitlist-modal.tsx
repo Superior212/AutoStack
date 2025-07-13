@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -21,6 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { CheckCircle, Mail, User, Globe } from "lucide-react";
 
 interface WaitlistModalProps {
   open: boolean;
@@ -116,82 +118,82 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="bg-[#17171C] border-0 text-white max-w-[370px] sm:max-w-[480px]">
+      <DialogContent className="max-w-md">
         {isSuccess ? (
           <div className="flex flex-col items-center text-center py-8">
-            <h2 className="text-xl font-semibold text-white mb-6">
-              Thank you for joining the waitlist!
-            </h2>
-            <div className="w-24 h-24 mb-6">
-              <img src="/assets/sms-star.svg" alt="sms-star" />
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <CheckCircle className="h-8 w-8 text-green-600" />
             </div>
-            <p className="text-gray-400 max-w-[80%]">
-              We&#39;ll notify you as soon as Coinsafe is ready for you to start
-              saving and earning with ease. In the meantime, feel free to share
-              the waitlist with friends and family—let&#39;s build a smarter way to
-              save together!
-            </p>
-            <Button
-              onClick={handleClose}
-              className="mt-6 bg-white hover:bg-white text-black rounded-[2rem]">
+            <DialogTitle className="text-xl font-semibold mb-2">
+              Thank you for joining the waitlist!
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              We&apos;ll notify you as soon as AutoStack is ready for you to
+              start saving and earning with ease. In the meantime, feel free to
+              share the waitlist with friends and family—let&apos;s build a
+              smarter way to save together!
+            </DialogDescription>
+            <Button onClick={handleClose} className="mt-6">
               Close
             </Button>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-xl font-semibold text-white">
+              <DialogTitle className="text-xl font-semibold">
                 Join our waitlist
               </DialogTitle>
-              <DialogDescription className="text-gray-400">
-                Be the first to experience Coinsafe! Sign up now to secure your
+              <DialogDescription>
+                Be the first to experience AutoStack! Sign up now to secure your
                 spot and get early access to tools that make saving simple,
                 secure, and rewarding.
               </DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm text-gray-400">
+                <Label htmlFor="name" className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
                   Name
-                </label>
+                </Label>
                 <Input
                   id="name"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, name: e.target.value }))
                   }
-                  className="bg-[#262628] border-0 text-white placeholder:text-gray-500"
+                  placeholder="Enter your name"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm text-gray-400">
+                <Label htmlFor="email" className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
                   Email address
-                </label>
+                </Label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={handleEmailChange}
-                  className={`bg-[#262628] border-0 text-white placeholder:text-gray-500 ${
-                    emailError ? "border-red-500" : ""
-                  }`}
+                  placeholder="Enter your email"
+                  className={emailError ? "border-destructive" : ""}
                   required
                 />
                 {emailError && (
-                  <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                  <p className="text-destructive text-sm">{emailError}</p>
                 )}
               </div>
               <div className="space-y-2">
-                <label htmlFor="country" className="text-sm text-gray-400">
+                <Label htmlFor="country" className="flex items-center gap-2">
+                  <Globe className="h-4 w-4" />
                   Country
-                </label>
+                </Label>
                 <Select
                   value={formData.country}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, country: value }))
                   }>
-                  <SelectTrigger className="bg-[#262628] border-0 text-white">
+                  <SelectTrigger>
                     <SelectValue placeholder="Select a country" />
                   </SelectTrigger>
                   <SelectContent>
@@ -203,17 +205,17 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex justify-between gap-3 mt-6">
+              <div className="flex gap-3 pt-4">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleClose}
-                  className="bg-[#262628] hover:bg-[#262628] text-white hover:text-white border-0 rounded-[2rem]">
+                  className="flex-1">
                   Cancel
                 </Button>
                 <Button
                   type="submit"
-                  className="bg-white hover:bg-white text-black rounded-[2rem]"
+                  className="flex-1"
                   disabled={
                     !formData.name ||
                     !formData.email ||

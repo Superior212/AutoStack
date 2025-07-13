@@ -62,27 +62,7 @@ export default function LatestHero() {
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">10K+</div>
-                <div className="text-sm text-muted-foreground">
-                  Active Users
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">$2M+</div>
-                <div className="text-sm text-muted-foreground">
-                  Total Savings
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">
-                  Success Rate
-                </div>
-              </div>
-            </div>
+            
           </div>
 
           {/* Right column - Dashboard Preview */}
