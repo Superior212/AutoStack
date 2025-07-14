@@ -262,15 +262,14 @@ export default function RewardsPage() {
                     </div>
                   </div>
                   <div className="text-right">
-                    {achievement.earned ? (
+                    {achievement.earned && (
                       <div>
                         <CheckCircle className="h-4 w-4 text-green-600 mb-1" />
                         <p className="text-xs text-muted-foreground">
-                          {new Date(achievement.date).toLocaleDateString()}
+                          {achievement.date
+                            ? new Date(achievement.date).toLocaleDateString()
+                            : ""}
                         </p>
-                      </div>
-                    ) : (
-                      <div>
                         <p className="text-sm text-muted-foreground">
                           {achievement.progress}/3
                         </p>

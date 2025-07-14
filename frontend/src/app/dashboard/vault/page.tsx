@@ -21,7 +21,6 @@ import {
   CheckCircle,
   Plus,
   Eye,
-  EyeOff,
 } from "lucide-react";
 
 export default function VaultPage() {
