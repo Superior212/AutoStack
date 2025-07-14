@@ -167,12 +167,6 @@ artifacts/
 cache/
 out/
 
-# ===== Truffle =====
-build/
-
-# ===== Ganache =====
-.ganache/
-
 # ===== Coverage =====
 coverage/
 *.lcov
