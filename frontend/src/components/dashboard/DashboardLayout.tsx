@@ -11,7 +11,6 @@ import {
   Gift,
   Menu,
   X,
-  LogOut,
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
@@ -101,8 +100,6 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               );
             })}
           </nav>
-
-      
         </div>
       </div>
 
@@ -121,13 +118,12 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <Badge variant="secondary">
+              <Badge variant="secondary" className="sm:flex hidden">
                 <Shield className="h-3 w-3 mr-1" />
-                Connected
+                Not Connected
               </Badge>
               <Button variant="outline" size="sm">
-                <LogOut className="h-4 w-4 mr-2" />
-                Disconnect
+                Connect Wallet
               </Button>
             </div>
           </div>
