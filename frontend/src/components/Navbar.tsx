@@ -29,11 +29,6 @@ export default function Navbar() {
               Features
             </Link>
             <Link
-              href="/pricing"
-              className="text-sm font-medium transition-colors hover:text-primary">
-              Pricing
-            </Link>
-            <Link
               href="/about"
               className="text-sm font-medium transition-colors hover:text-primary">
               About
@@ -93,12 +88,6 @@ export default function Navbar() {
                 Features
               </Link>
               <Link
-                href="/pricing"
-                className="block text-sm font-medium transition-colors hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}>
-                Pricing
-              </Link>
-              <Link
                 href="/about"
                 className="block text-sm font-medium transition-colors hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}>
@@ -113,9 +102,6 @@ export default function Navbar() {
             </div>
             
             <div className="mt-6 flex flex-col space-y-4">
-              <Button variant="ghost" size="sm" className="w-full justify-start">
-                Sign In
-              </Button>
               <Button size="sm" className="w-full">
                 Get Started
               </Button>
